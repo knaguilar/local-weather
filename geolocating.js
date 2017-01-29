@@ -7,7 +7,8 @@ $(document).ready(function() {
     if ("geolocation" in navigator) {
       console.log("GeoLocation available");
       navigator.geolocation.getCurrentPosition(function(position) {
-        $.getJSON("https://api.darksky.net/forecast/9e33c0fe31a85de97a958d06533d6a18/" + position.coords.latitude + ","+ position.coords.longitude + ", function(data) {
+        var url = "https://api.darksky.net/forecast/9e33c0fe31a85de97a958d06533d6a18/" + position.coords.latitude + "," + position.coords.longitude;
+        $.getJSON(url, function(data) {
         //do stuff with data returned as json
           console.log(data); //moscow
         });
