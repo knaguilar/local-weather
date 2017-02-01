@@ -40,15 +40,7 @@ function fetchWeather() {
   setTimeout(function() { fetchWeather();  }, 900000);
 }
 
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-  }
-    /* geolocation is available */
-  else {
-  console.log("GeoLocation not available");
 
-  /* geolocation IS NOT available */
-  }
 //if the geolocation was successful, calls functions to run location name finder
 //and weather info
 function successFunction(position) {
@@ -64,6 +56,15 @@ function errorFunction() {
 
 function initialize() {
   geocoder = new google.maps.Geocoder();
+
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+  }
+    /* geolocation is available */
+  else {
+    console.log("GeoLocation not available");
+  /* geolocation IS NOT available */
+  }
 }
 
 
