@@ -2,16 +2,50 @@
 <html>
 <head>
 	<title>Local Weather App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style type="text/css">
+		* {
+    		outline: #00FF00 dotted thin;
+    	}
+		.container-fluid {
+			background-color: green;
+		}
+	</style>
 </head>
 <body>
-	<h1>Local Weather</h1>
-	<p class="temp"></p>
-	<p class="city"></p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1 class="text-center">Local Weather</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<p class="temp text-center"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="text-center col-md-8 col-md-offset-2">
+				<div class="col-md-4">
+					<p class="city">Location: </p>
+				</div>
+				<div class="col-md-4">
+					<p class="description">Description: </p>
+				</div>
+				<div class="col-md-4">
+					<p class="Wind">Speed: </p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<footer>
-	<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a></footer>
+		<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
+	</footer>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="geocode.js"></script>
+<script src="js/geocode.js"></script>
+<script src="js/bootstrap.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0PAG-ktqqwgS2GA-M3rhVAgf_rqmpLbk&callback=initialize"></script>
 </html>
