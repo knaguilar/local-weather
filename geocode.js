@@ -54,8 +54,8 @@ function fetchWeather() {
 function successFunction(position) {
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
-  codeLatLng(latitude, longitude);
   fetchWeather();
+  codeLatLng(latitude, longitude);
 }
 
 function errorFunction() {
