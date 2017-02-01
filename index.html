@@ -5,16 +5,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<style type="text/css">
+		html, body {
+			height: 100%;
+		}
 		* {
-    		outline: #00FF00 dotted thin;
+			color: red;
+    		/*outline: #00FF00 dotted thin;*/
     	}
-		.container-fluid {
+		/*.container-fluid {
 			background-color: green;
+			background-image: url("images/sunny.jpg");
+			background-position: center center;
+			background-size: cover;
+		}*/
+		.fill {
+			height: 100%;
 		}
 	</style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid fill">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<h1 class="text-center">Local Weather</h1>
@@ -34,14 +44,16 @@
 					<p class="description">Description: </p>
 				</div>
 				<div class="col-md-4">
-					<p class="Wind">Speed: </p>
+					<p class="wind">Speed: </p>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<footer>
+				<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
+			</footer>
+		</div>
 	</div>
-	<footer>
-		<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
-	</footer>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

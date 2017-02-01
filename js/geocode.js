@@ -11,7 +11,10 @@ var longitude    =  "";  // Your Longitude
 
 //display current temperature
 function do_something(data) {
-  $('.temp').html(data.currently.temperature);
+  $('.temp').html(data.currently.temperature + "&#8457;");
+  var icon = data.currently.icon.replace(/-/gi, " ");
+  $('.description').html(icon);
+  $('.wind').html(data.currently.windSpeed + " mph");
 }
 
 //display user's location
@@ -27,7 +30,7 @@ function displayCity(city, found) {
 //Ask the API for current weather and other info
 function fetchWeather() {
   $.ajax({
-    url: FORECAST_URL + FORECAST_API + '/' + latitude + ',' + longitude + "?units=auto",
+    url: FORECAST_URL + FORECAST_API + '/' + latitude + ',' + longitude + "?units=us",
     dataType: "jsonp",
 
     success: function (data) {
@@ -76,6 +79,13 @@ function codeLatLng(lat, lng) {
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if(status == google.maps.GeocoderStatus.OK) {
       if(results[1]) {
+        // var addr = results[0].formatted_address;
+        // var addr_array = addr.split(" ");
+        // var len = addr_array.length;
+
+        // city = addr_array[len - 2] + " " + addr_array[len - 1];
+        // found = true;
+
         for (var i = 0; i < results[0].address_components.length; i++) {
           for (var j = 0; j < results[0].address_components[i].types.length; j++) {
             if(results[0].address_components[i].types[j] == "locality") {
