@@ -3,12 +3,14 @@
 <head>
 	<title>Local Weather App</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="geolocating.js"></script>
+	<script src="geocode.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
 </head>
-<body>
+<body onload="initialize()">
 	<h1>Local Weather</h1>
-	<button class="button">Find Me</button>
 	<p class="temp"></p>
+	<p class="city"></p>
 	<footer>
 	<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a></footer>
 
