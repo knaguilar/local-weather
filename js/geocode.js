@@ -11,16 +11,16 @@ var longitude    =  "";  // Your Longitude
 
 //display current temperature
 function do_something(data) {
-  $('.temp').html(data.currently.temperature + "&#8457;");
+  $('.temp').append(data.currently.temperature + "&#8457;");
   var icon = data.currently.icon.replace(/-/gi, " ");
-  $('.description').html(icon);
-  $('.wind').html(data.currently.windSpeed + " mph");
+  $('.description').append(icon);
+  $('.wind').append(data.currently.windSpeed + " mph");
 }
 
 //display user's location
 function displayCity(city, found) {
   if(found){
-    $('.city').html(city.long_name);
+    $('.city').append(city.long_name);
   }
   else {
     $('.city').html(city);

@@ -9,50 +9,69 @@
 			height: 100%;
 		}
 		* {
-			color: red;
     		/*outline: #00FF00 dotted thin;*/
     	}
-		/*.container-fluid {
+    	h1{
+    		color: #15ABFF;
+    	}
+		.container-fluid {
 			background-color: green;
 			background-image: url("images/sunny.jpg");
 			background-position: center center;
 			background-size: cover;
-		}*/
+		}
 		.fill {
 			height: 100%;
+		}
+		.top-space {
+			margin-top: 5%;
+		}
+
+		.city, .description, .wind, .temp {
+			border-radius: 10%;
+			border-color: #8B979E;
+			border-style: solid;
+			background-color: #7D8187;
+			font-size: 1.3em;
+		}
+		#marker, #temp, #wind {
+			max-height: 25px;
+		}
+		footer {
+			background-color: #B2B059;
 		}
 	</style>
 </head>
 <body>
 	<div class="container-fluid fill">
-		<div class="row">
+		<div class="row top-space">
 			<div class="col-md-6 col-md-offset-3">
 				<h1 class="text-center">Local Weather</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<p class="temp text-center"></p>
+			<div class="col-md-4 col-md-offset-4">
+				<p class="temp text-center"><img id="temp" src="images/temp.png"/></p>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row top-space">
 			<div class="text-center col-md-8 col-md-offset-2">
 				<div class="col-md-4">
-					<p class="city">Location: </p>
+					<p class="city"><img id="marker" src="images/marker.png"/> </p>
 				</div>
 				<div class="col-md-4">
-					<p class="description">Description: </p>
+					<p class="description"></p>
 				</div>
 				<div class="col-md-4">
-					<p class="wind">Speed: </p>
+					<p class="wind"><img id="wind" src="images/wind.png"/></p>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<footer>
-				<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
-			</footer>
-		</div>
+	</div>
+	<div>
+		<footer class="navbar-fixed-bottom">
+			<a href="https://darksky.net/poweredby/">Powered By Dark Sky</a>
+		</footer>
 	</div>
 
 </body>
