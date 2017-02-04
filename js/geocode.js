@@ -10,11 +10,21 @@ var latitude     =  "";  // Your Latitude
 var longitude    =  "";  // Your Longitude
 
 //display current temperature
-function do_something(data) {
-  $('.temp').append(data.currently.temperature + "&#8457;");
+function displayWeather(data) {
+  var temperature = roundNumber(data.currently.temperature);
+  $('.temp').append(temperature + "&#8457;");
+  $('.temp').addClass('fahren');
   var icon = data.currently.icon.replace(/-/gi, " ");
   $('.description').append(icon);
   $('.wind').append(data.currently.windSpeed + " mph");
+  $('.temp').click(function(){
+    if( $('.temp').hasClass('fahren')){
+      fahrenToCel(temperature);
+    }
+    else{
+      celToFahren(temperature);
+    }
+});
 }
 
 //display user's location
@@ -27,6 +37,24 @@ function displayCity(city, found) {
   }
 }
 
+function fahrenToCel(temperature){
+  $('.temp').removeClass('fahren');
+  var cel = (temperature - 32) / 1.8;
+  $('.temp').html(roundNumber(cel) + "&#8451;");
+  $('.temp').addClass('celsius');
+}
+
+function celToFahren(temperature){
+  $('.temp').removeClass('celsius');
+  $('.temp').html(temperature + "&#8457;");
+  $('.temp').addClass('fahren');
+}
+
+function roundNumber(num) {
+    num = Math.ceil(num * 100)/100;
+  return num;
+}
+
 //Ask the API for current weather and other info
 function fetchWeather() {
   $.ajax({
@@ -35,12 +63,13 @@ function fetchWeather() {
 
     success: function (data) {
       weatherData = data;  /* Store our newly aquired weather data */
-      do_something(weatherData);
+      chooseBackgroundWeather(weatherData.currently.icon);
+      displayWeather(weatherData);
     }
   });
 
   // Fetch the weather every fifteen minutes
-  setTimeout(function() { fetchWeather();  }, 900000);
+  //setTimeout(function() { fetchWeather();  }, 900000);
 }
 
 
@@ -55,6 +84,16 @@ function successFunction(position) {
 
 function errorFunction() {
   alert("Geocoder failed");
+}
+
+function chooseBackgroundWeather(condition){
+  // if(condition == "clear-day"){
+  //   //show image of clear skies
+  // }
+  // else if(condition == "clear-day"){
+  //   //show image of clear skies
+  // }
+
 }
 
 function initialize() {
