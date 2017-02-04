@@ -87,13 +87,39 @@ function errorFunction() {
 }
 
 function chooseBackgroundWeather(condition){
-  // if(condition == "clear-day"){
-  //   //show image of clear skies
-  // }
-  // else if(condition == "clear-day"){
-  //   //show image of clear skies
-  // }
-
+  $('.container-fluid').removeClass('fill');
+  if(condition == "clear-day"){
+    $('.container-fluid').css({"background-image" : "url('images/sunny.jpg')"});
+    //show image of clear skies
+  }
+  else if(condition == "clear-night"){
+    $('.container-fluid').css({"background-image" : "url('images/clear-night.jpg')"});
+    //show image of clear skies
+  }
+  else if(condition == "rain" || condition == "hail" || condition == "fog"){
+    $('.container-fluid').css({"background-image" : "url('images/rain.jpg')"});
+    //show image of clear skies
+  }
+  else if(condition == "snow" || condition == "sleet"){
+    $('.container-fluid').css({"background-image" : "url('images/snow.jpg')"});
+    //show image of clear skies
+  }
+  else if(condition == "wind" || condition == "tornado"){
+    $('.container-fluid').css({"background-image" : "url('images/wind.jpg')"});
+    //show image of clear skies
+  }
+  else if(condition == "partly-cloudy-day" || condition == "partly-cloudy-night"){
+    $('.container-fluid').css({"background-image" : "url('images/cloudy-sky.jpg')"});
+    //show image of clear skies
+  }
+  else if(condition == "thunderstorm"){
+    $('.container-fluid').css({"background-image" : "url('images/lighting.jpg')"});
+    //show image of clear skies
+  }
+  else{
+    $('.container-fluid').css({"background-image" : "url('images/default.jpg')"});
+    //default
+  }
 }
 
 function initialize() {
