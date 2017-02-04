@@ -12,13 +12,13 @@ var longitude    =  "";  // Your Longitude
 //display current temperature
 function displayWeather(data) {
   var temperature = roundNumber(data.currently.temperature);
-  $('.temp').append(temperature + "&#8457;");
-  $('.temp').addClass('fahren');
+  $('#temp').after("<span class='fahren'>" + temperature +  "&#8457;</span>");
+  // $('.temp').addClass('fahren');
   var icon = data.currently.icon.replace(/-/gi, " ");
   $('.description').append(icon);
   $('.wind').append(data.currently.windSpeed + " mph");
   $('.temp').click(function(){
-    if( $('.temp').hasClass('fahren')){
+    if( $('.temp > span').hasClass('fahren')){
       fahrenToCel(temperature);
     }
     else{
@@ -38,16 +38,16 @@ function displayCity(city, found) {
 }
 
 function fahrenToCel(temperature){
-  $('.temp').removeClass('fahren');
+  $('.temp > span').removeClass('fahren');
   var cel = (temperature - 32) / 1.8;
-  $('.temp').html(roundNumber(cel) + "&#8451;");
-  $('.temp').addClass('celsius');
+  $('.temp > span').html(roundNumber(cel) + "&#8451;");
+  $('.temp > span').addClass('celsius');
 }
 
 function celToFahren(temperature){
-  $('.temp').removeClass('celsius');
-  $('.temp').html(temperature + "&#8457;");
-  $('.temp').addClass('fahren');
+  $('.temp > span').removeClass('celsius');
+  $('.temp > span').html(temperature + "&#8457;");
+  $('.temp > span').addClass('fahren');
 }
 
 function roundNumber(num) {
